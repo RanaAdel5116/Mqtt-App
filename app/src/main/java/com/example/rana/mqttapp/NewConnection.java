@@ -26,16 +26,16 @@ import java.io.UnsupportedEncodingException;
 
 public class NewConnection extends AppCompatActivity {
 
-    EditText id,server,name,pass,port,timeout,keepAlive,ssl;
-    TextView topic,meg;
-    RadioButton r0,r1,r2;
-    CheckBox ret;
-    Button submit;
-    Switch cleanS,adv,lastwill;
+    private EditText id,server,name,pass,port,timeout,keepAlive,ssl;
+    private TextView topic,meg;
+    private RadioButton r0,r1,r2;
+    private CheckBox ret;
+    private Button submit;
+    private Switch cleanS,adv,lastwill;
     static NewConnection instant;
-    String clientId;
-    boolean ret1 = false;
-    int qos = 0;
+    private String clientId;
+    private boolean ret1 = false;
+    private int qos = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -208,7 +208,7 @@ public class NewConnection extends AppCompatActivity {
                         @Override
                         public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
                             // Something went wrong e.g. connection timeout or firewall problems
-                            Toast.makeText(NewConnection.this, exception.toString(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(NewConnection.this, exception.getMessage().toString(), Toast.LENGTH_SHORT).show();
                         }
                     });
                 } catch (MqttException e) {

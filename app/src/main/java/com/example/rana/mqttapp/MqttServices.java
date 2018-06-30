@@ -14,8 +14,8 @@ import static android.content.ContentValues.TAG;
 
 public class MqttServices {
 
-    String meg;
-    MqttAndroidClient client;
+    private String meg;
+    private MqttAndroidClient client;
     public MqttServices(MqttAndroidClient client){
         this.client = client;
     }

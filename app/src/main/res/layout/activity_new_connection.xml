@@ -32,6 +32,7 @@
             android:maxLines="1"
             android:layout_marginTop="60dp"
             android:singleLine="true"
+            android:text="@string/client_id"
              />
     </android.support.design.widget.TextInputLayout>
 
@@ -47,6 +48,7 @@
                 android:inputType="text"
                 android:maxLines="1"
                 android:singleLine="true"
+                android:text="@string/iot_eclipse_org"
                 />
         </android.support.design.widget.TextInputLayout>
 
@@ -58,10 +60,11 @@
                 android:id="@+id/port"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/port_1883"
+                android:hint="@string/port"
                 android:inputType="number"
                 android:maxLines="1"
                 android:singleLine="true"
+                android:text="1883"
                />
         </android.support.design.widget.TextInputLayout>
 

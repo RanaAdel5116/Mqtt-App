@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import org.eclipse.paho.android.service.MqttAndroidClient;
 
@@ -18,11 +17,11 @@ import static android.content.ContentValues.TAG;
 
 public class Tab3Subscribe extends Fragment {
 
-    Button sub;
-    TextView topic;
-    RadioButton r0,r1,r2;
-    int qos = 0;
-    String clienId;
+    private Button sub;
+    private TextView topic;
+    private RadioButton r0,r1,r2;
+    private int qos = 0;
+    private String clienId;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -51,6 +50,7 @@ public class Tab3Subscribe extends Fragment {
                 }else qos = 2;
 
                 mqttServices.subscribe(topic.getText().toString(),qos);
+                topic.setText("");
                 Log.d(TAG,"succ"+qos);
             }
         });

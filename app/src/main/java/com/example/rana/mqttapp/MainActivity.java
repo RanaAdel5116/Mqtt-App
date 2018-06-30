@@ -1,11 +1,9 @@
 package com.example.rana.mqttapp;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -15,52 +13,36 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.eclipse.paho.android.service.MqttAndroidClient;
-import org.eclipse.paho.client.mqttv3.IMqttActionListener;
-import org.eclipse.paho.client.mqttv3.IMqttToken;
-import org.eclipse.paho.client.mqttv3.MqttClient;
-import org.eclipse.paho.client.mqttv3.MqttException;
-import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
-
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.sql.Connection;
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity {
 
-    ArrayList <String> connections = new ArrayList<>();
-    Button newConnection;
-    ListView listview;
-    CustomAdapter customAdapter;
-
+    private ArrayList <String> connections = new ArrayList<>();
+    private Button newConnection;
+    private ListView listview;
+    private CustomAdapter customAdapter;
+   /* private SharedPreferences sPrefs;
+    private ConnectionsCache cmTyps;*/
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-       /* ObjectInputStream ois = null;
-        try {
-            ois = new ObjectInputStream(new FileInputStream("home/rana/AndroidStudioProjects/MQTTApp/connections.txt"));
-            connections = (ArrayList<String>) ois.readObject();
-        } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
-        }*/
-
-        if(connections.isEmpty()){
-            Toast.makeText(MainActivity.this,"No Connections found!",Toast.LENGTH_LONG).show();
-        }
-
         listview = findViewById(R.id.listview);
         customAdapter = new CustomAdapter();
         listview.setAdapter(customAdapter);
 
+    /*    sPrefs = getSharedPreferences("prefs",MODE_PRIVATE);
+        cmTyps = ConnectionsCache.fromCash(sPrefs);
+        if(cmTyps == null) {
+            cmTyps = new ConnectionsCache();
+            connections = cmTyps.getContent();
+            cmTyps.cashCompliantTypes(sPrefs);
+        }
+*/
+        if(connections != null && connections.isEmpty()){
+            Toast.makeText(MainActivity.this,"No Connections found!",Toast.LENGTH_LONG).show();
+        }
         newConnection = findViewById(R.id.new_conn);
 
         newConnection.setOnClickListener(new View.OnClickListener() {
@@ -85,6 +67,8 @@ public class MainActivity extends AppCompatActivity {
             if(resultCode == RESULT_OK) {
                 String conn = data.getStringExtra("conn");
                 connections.add(conn);
+                /*cmTyps.setContent(connections);
+                cmTyps.cashCompliantTypes(sPrefs);*/
                 listview.setAdapter(customAdapter);
             }
         }
@@ -117,27 +101,5 @@ public class MainActivity extends AppCompatActivity {
             return view;
         }
     }
-
-   /* @Override
-    protected void onStop() {
-        super.onStop();
-        Toast.makeText(MainActivity.this,"onstop",Toast.LENGTH_LONG).show();
-
-        FileOutputStream out = null;
-        ObjectOutputStream oout = null;
-        try {
-            out = new FileOutputStream("home/rana/AndroidStudioProjects/MQTTApp/connections.txt");
-            oout = new ObjectOutputStream(out);
-
-            Toast.makeText(MainActivity.this,"file",Toast.LENGTH_LONG).show();
-            oout.writeObject(connections);
-            oout.flush();
-            oout.close();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-    }*/
 }
 

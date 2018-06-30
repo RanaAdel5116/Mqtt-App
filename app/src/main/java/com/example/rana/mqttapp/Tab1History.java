@@ -13,8 +13,8 @@ import java.util.ArrayList;
 
 public class Tab1History extends Fragment {
 
-    ListView listview;
-    CustomAdapter customAdapter;
+    private ListView listview;
+    private CustomAdapter customAdapter;
     static ArrayList<String> megs = new ArrayList<>();
 
     @Override

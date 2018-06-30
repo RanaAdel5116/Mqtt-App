@@ -8,8 +8,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Connections {
-    String clientID,server,name,pass;
-     int port;
+    private String clientID,server,name,pass;
+    private int port;
 
     static Map<String, MqttAndroidClient> clients = new HashMap<>();
 

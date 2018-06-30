@@ -18,12 +18,12 @@ import static android.content.ContentValues.TAG;
 
 public class Tab2Publish extends Fragment {
 
-    TextView topic,meg;
-    RadioButton r0,r1,r2;
-    CheckBox ret;
-    Button publish;
-    int qos = 0;
-    String clienId;
+    private TextView topic,meg;
+    private RadioButton r0,r1,r2;
+    private CheckBox ret;
+    private Button publish;
+    private int qos = 0;
+    private String clienId;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -60,6 +60,8 @@ public class Tab2Publish extends Fragment {
                 }else ret1 = false;
 
                 mqttServices.publish(topic.getText().toString(),meg.getText().toString(),qos,ret1);
+                topic.setText("");
+                meg.setText("");
                 Log.d(TAG,"succ pub" + qos);
             }
         });

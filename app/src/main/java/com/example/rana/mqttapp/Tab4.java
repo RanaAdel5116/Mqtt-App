@@ -3,7 +3,6 @@ package com.example.rana.mqttapp;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +10,6 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ListView;
-import android.widget.RadioButton;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,18 +20,15 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import static android.content.ContentValues.TAG;
 
 public class Tab4 extends Fragment {
 
-    TextView topic;
-    Switch hello ,bye;
-    String clienId;
-    ListView listview;
-    Button display;
-    CustomAdapter customAdapter;
+    private TextView topic;
+    private String clienId;
+    private ListView listview;
+    private CustomAdapter customAdapter;
     static Map<String,ArrayList<String> > megs = new HashMap<>();
-    ArrayList<String> Mmegs = new ArrayList<>();
+    private ArrayList<String> Mmegs = new ArrayList<>();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -44,15 +39,16 @@ public class Tab4 extends Fragment {
         MqttAndroidClient client = Connections.clients.get(clienId);
 
         topic = rootView.findViewById(R.id.topic);
-        hello = rootView.findViewById(R.id.switch3);
-        bye = rootView.findViewById(R.id.switch4);
-        display = rootView.findViewById(R.id.dis);
+        Switch hello = rootView.findViewById(R.id.switch3);
+        Switch bye = rootView.findViewById(R.id.switch4);
+        Button display = rootView.findViewById(R.id.dis);
         listview = rootView.findViewById(R.id.listview);
 
         display.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(topic.getText().toString().isEmpty()) {
+                    Toast.makeText(new MainActivity(),"mnkk",Toast.LENGTH_LONG).show();
                 }else {
                     if(!(megs.get(topic.getText().toString())== null)) {
                         Mmegs = megs.get(topic.getText().toString());

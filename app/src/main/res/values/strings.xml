@@ -22,7 +22,7 @@
     <string name="user_name">User Name</string>
     <string name="advanced">Advanced</string>
     <string name="clean_session">Clean Session</string>
-    <string name="port_1883">Port:1883</string>
+    <string name="port">Port</string>
     <string name="server">Server</string>
     <string name="id">ID</string>
     <string name="message">Message</string>
@@ -39,4 +39,6 @@
     <string name="display">Display</string>
     <string name="history">HISTORY</string>
     <string name="user">USER</string>
+    <string name="client_id">AndroidClientID</string>
+    <string name="iot_eclipse_org">iot.eclipse.org</string>
 </resources>
