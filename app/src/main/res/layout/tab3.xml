@@ -1,6 +1,4 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -20,7 +18,7 @@
         android:id="@+id/topic"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Topic"
+        android:hint="@string/topic"
         android:inputType="text"
         android:maxLines="1"
         android:singleLine="true"
@@ -32,7 +30,7 @@
             android:layout_width="50dp"
             android:layout_height="30dp"
             android:layout_marginTop="20dp"
-            android:text="Qos" />
+            android:text="@string/qos" />
 <RadioGroup
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
@@ -41,27 +39,27 @@
     android:id="@+id/radioButton0"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:text="0"
+    android:text="@string/_0"
         android:checked="true"/>
 
     <RadioButton
         android:id="@+id/radioButton1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="1" />
+        android:text="@string/_1" />
 
     <RadioButton
         android:id="@+id/radioButton2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="2" /></RadioGroup>
+        android:text="@string/_2" /></RadioGroup>
 
 
         <Button
             android:id="@+id/sub"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Subscribe" />
+            android:text="@string/subscribe" />
 
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

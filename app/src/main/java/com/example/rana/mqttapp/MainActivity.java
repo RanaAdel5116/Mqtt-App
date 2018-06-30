@@ -22,6 +22,13 @@ import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -37,6 +44,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+       /* ObjectInputStream ois = null;
+        try {
+            ois = new ObjectInputStream(new FileInputStream("home/rana/AndroidStudioProjects/MQTTApp/connections.txt"));
+            connections = (ArrayList<String>) ois.readObject();
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }*/
 
         if(connections.isEmpty()){
             Toast.makeText(MainActivity.this,"No Connections found!",Toast.LENGTH_LONG).show();
@@ -103,5 +118,26 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+   /* @Override
+    protected void onStop() {
+        super.onStop();
+        Toast.makeText(MainActivity.this,"onstop",Toast.LENGTH_LONG).show();
+
+        FileOutputStream out = null;
+        ObjectOutputStream oout = null;
+        try {
+            out = new FileOutputStream("home/rana/AndroidStudioProjects/MQTTApp/connections.txt");
+            oout = new ObjectOutputStream(out);
+
+            Toast.makeText(MainActivity.this,"file",Toast.LENGTH_LONG).show();
+            oout.writeObject(connections);
+            oout.flush();
+            oout.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }*/
 }
 

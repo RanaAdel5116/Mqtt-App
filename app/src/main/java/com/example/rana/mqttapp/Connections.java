@@ -9,9 +9,8 @@ import java.util.Map;
 
 public class Connections {
     String clientID,server,name,pass;
-    int port;
+     int port;
 
-    //static MqttAndroidClient [] clients = new MqttAndroidClient[1];
     static Map<String, MqttAndroidClient> clients = new HashMap<>();
 
     public Connections(String clientID,String server, int port,String name,String pass,MqttAndroidClient client){

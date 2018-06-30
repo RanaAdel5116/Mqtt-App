@@ -1,5 +1,4 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
@@ -20,7 +19,7 @@
                 android:id="@+id/topic"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Topic"
+                android:hint="@string/topic"
                 android:inputType="text"
                 android:maxLines="1"
                 android:singleLine="true"
@@ -31,27 +30,25 @@
             android:id="@+id/switch3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="hello" />
+            android:text="@string/hello" />
 
         <Switch
             android:id="@+id/switch4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:checked="false"
-            android:text="bye"
+            android:text="@string/bye"
             tools:checked="false" />
 
         <ListView
             android:id = "@+id/listview"
             android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true" />
+            android:layout_height="300dp" />
 
         <Button
             android:id="@+id/dis"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Display"/>
+            android:text="@string/display"/>
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

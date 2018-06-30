@@ -18,8 +18,6 @@ public class MqttServices {
     MqttAndroidClient client;
     public MqttServices(MqttAndroidClient client){
         this.client = client;
-        meg = "Client: " +client.getClientId() +" has created";
-        Tab1History.megs.add(meg);
     }
 
     public void connect(){

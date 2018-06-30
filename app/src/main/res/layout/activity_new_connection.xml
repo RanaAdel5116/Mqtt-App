@@ -4,11 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.rana.mqttapp.NewConnection">
+    tools:context="com.example.rana.mqttapp.NewConnection"
+    app:title = "Mqtt App">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="567dp"
+        >
 
     <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical"
         android:padding="@dimen/activity_horizontal_margin">
@@ -21,9 +27,10 @@
             android:id="@+id/cli_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="ID"
+            android:hint="@string/id"
             android:inputType="text"
             android:maxLines="1"
+            android:layout_marginTop="60dp"
             android:singleLine="true"
              />
     </android.support.design.widget.TextInputLayout>
@@ -36,7 +43,7 @@
                 android:id="@+id/server"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Server"
+                android:hint="@string/server"
                 android:inputType="text"
                 android:maxLines="1"
                 android:singleLine="true"
@@ -51,7 +58,7 @@
                 android:id="@+id/port"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Port:1883"
+                android:hint="@string/port_1883"
                 android:inputType="number"
                 android:maxLines="1"
                 android:singleLine="true"
@@ -62,11 +69,12 @@
             android:id="@+id/switch1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Clean Session" />
-            <TextView
+            android:text="@string/clean_session" />
+            <Switch
+                android:id="@+id/adv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Advanced"
+                android:text="@string/advanced"
                 android:textSize="18sp"
                 android:textStyle="bold"/>
         <android.support.design.widget.TextInputLayout
@@ -77,10 +85,11 @@
                 android:id="@+id/name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="User Name"
+                android:hint="@string/user_name"
                 android:inputType="text"
                 android:maxLines="1"
                 android:singleLine="true"
+                android:focusableInTouchMode="false"
                 />
         </android.support.design.widget.TextInputLayout>
 
@@ -93,11 +102,28 @@
                 android:id="@+id/pass"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Password"
+                android:hint="@string/password"
                 android:inputType="text|number"
                 android:maxLines="1"
                 android:singleLine="true"
+                android:focusableInTouchMode="false"
                   />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/ssl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/ssl"
+                android:inputType="text"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:focusableInTouchMode="false"
+                />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -108,10 +134,11 @@
                 android:id="@+id/timeout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Time Out:60"
+                android:hint="@string/time_out_60"
                 android:inputType="number"
                 android:maxLines="1"
                 android:singleLine="true"
+                android:focusableInTouchMode="false"
                   />
         </android.support.design.widget.TextInputLayout>
 
@@ -123,17 +150,99 @@
                 android:id="@+id/keep_alive"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Keep Alive Timeout:200"
+                android:hint="@string/keep_alive_timeout_200"
                 android:inputType="number"
                 android:maxLines="1"
                 android:singleLine="true"
+                android:focusableInTouchMode="false"
                  />
         </android.support.design.widget.TextInputLayout>
+
+        <Switch
+            android:id="@+id/lastwill"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/last_will"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/topic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/topic"
+                android:inputType="text"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:focusableInTouchMode="false"
+                />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/mes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/message"
+                android:inputType="text"
+                android:singleLine="true"
+                android:focusableInTouchMode="false"
+                />
+        </android.support.design.widget.TextInputLayout>
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="50dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/qos" />
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:id="@+id/radioButton0"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/_0"
+                android:checked="true"
+                android:focusableInTouchMode="false"/>
+
+            <RadioButton
+                android:id="@+id/radioButton1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/_1"
+                android:focusableInTouchMode="false"/>
+
+            <RadioButton
+                android:id="@+id/radioButton2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/_2"
+                android:focusableInTouchMode="false"/></RadioGroup>
+
+        <CheckBox
+            android:id="@+id/ret"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:text="@string/retained"
+            android:textSize="20sp"
+            android:focusableInTouchMode="false"/>
 
         <Button
             android:id="@+id/_submit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="submit" />
+            android:text="@string/submit" />
     </LinearLayout>
+    </ScrollView>
 </android.support.constraint.ConstraintLayout>
