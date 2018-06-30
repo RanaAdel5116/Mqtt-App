@@ -9,4 +9,7 @@ I assumed that there is EditText field in user panel for the topic that we want 
 
  # Issues
  I have tried to save the connections in a file and restore the connections each time i open the app,but it didn't work.
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6431574fb2e53fd49da32806a5dd991ed803330d
